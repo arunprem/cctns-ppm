@@ -3,7 +3,7 @@ package io.keralapolice.ppmtool.repository;
 
 import io.keralapolice.ppmtool.domain.Project;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.CrudRepositoryExtensionsKt;
+
 import org.springframework.stereotype.Repository;
 
 @Repository
