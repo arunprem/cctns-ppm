@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.server.handler.ResponseStatusExceptionHandler;
 
+
 @ControllerAdvice
 @RestController
 public class CustomResponseEntityExceptionHandler extends ResponseStatusExceptionHandler {
