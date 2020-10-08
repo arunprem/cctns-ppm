@@ -23,7 +23,7 @@ public class ProjectController {
     @Autowired
     private ProjectService projectService;
 
-    @Autowired
+    @Autowired 
     private MapValidationErrorService mapValidationErrorService;
 
     @PostMapping("")
