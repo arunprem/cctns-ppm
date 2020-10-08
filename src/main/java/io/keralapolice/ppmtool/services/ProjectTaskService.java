@@ -5,6 +5,7 @@ import io.keralapolice.ppmtool.domain.Project;
 import io.keralapolice.ppmtool.domain.ProjectTask;
 import io.keralapolice.ppmtool.exceptions.ProjectNotFoundException;
 import io.keralapolice.ppmtool.repository.BacklogRepository;
+import io.keralapolice.ppmtool.repository.ProjectRepository;
 import io.keralapolice.ppmtool.repository.ProjectTaskRepository;
 import net.bytebuddy.implementation.bytecode.Throw;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,9 @@ public class ProjectTaskService {
 
     @Autowired
     private ProjectTaskRepository projectTaskRepository;
+
+    @Autowired
+    private ProjectRepository projectRepository;
 
 
     public ProjectTask addProjectTask(String projectIdentifier, ProjectTask projectTask){
@@ -57,6 +61,11 @@ public class ProjectTaskService {
     }
 
     public List<ProjectTask> findBacklogByid(String backlog_id) {
+        Project project = projectRepository.findByProjectIdentifier(backlog_id);
+
+        if(project==null){
+            throw  new ProjectNotFoundException("Project with Id "+backlog_id+" does not exist");
+        }
         return projectTaskRepository.findByProjectIdentifierOrderByPriority(backlog_id);
     }
 }
