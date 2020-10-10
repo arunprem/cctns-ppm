@@ -1,5 +1,6 @@
 package io.keralapolice.ppmtool.web;
 
+import io.keralapolice.ppmtool.domain.Project;
 import io.keralapolice.ppmtool.domain.ProjectTask;
 import io.keralapolice.ppmtool.services.MapValidationErrorService;
 import io.keralapolice.ppmtool.services.ProjectTaskService;
@@ -46,4 +47,12 @@ public class BacklogController {
 
         return new ResponseEntity<List<ProjectTask>>(projectTaskService.findBacklogByid(backlog_id),HttpStatus.CREATED);
     }
+
+    @GetMapping("/{backlog_id}/{pt_id}")
+    public ResponseEntity<?>getProjectTask(@PathVariable String backlog_id,@PathVariable String pt_id){
+        ProjectTask projectTask = projectTaskService.findPTByProjectSequence(backlog_id,pt_id);
+            return new ResponseEntity<ProjectTask>(projectTask,HttpStatus.OK);
+    }
+
+
 }
