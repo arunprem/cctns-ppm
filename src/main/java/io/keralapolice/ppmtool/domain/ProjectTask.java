@@ -32,7 +32,7 @@ public class ProjectTask {
     private Date crated_At;
     private Date updated_At;
 
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.REFRESH)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "backlog_id",updatable = false,nullable = false)
     @JsonIgnore
     private Backlog backlog;

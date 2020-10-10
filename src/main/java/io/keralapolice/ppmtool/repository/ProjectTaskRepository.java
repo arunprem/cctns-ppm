@@ -1,7 +1,6 @@
 package io.keralapolice.ppmtool.repository;
 
 
-import io.keralapolice.ppmtool.domain.Project;
 import io.keralapolice.ppmtool.domain.ProjectTask;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -16,3 +15,6 @@ public interface ProjectTaskRepository extends CrudRepository<ProjectTask, Long>
 
     ProjectTask findProjectTaskByProjectSequence(String sequence);
 }
+
+
+
