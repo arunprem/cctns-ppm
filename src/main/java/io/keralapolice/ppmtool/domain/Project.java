@@ -21,9 +21,9 @@ public class Project {
     private String projectIdentifier;
     @NotBlank(message = "Project Description is required")
     private String description;
-    @JsonFormat(pattern = "M-dd-yyyy")
+    @JsonFormat(pattern = "yyyy-M-dd")
     private Date start_date;
-    @JsonFormat(pattern = "M-dd-yyyy")
+    @JsonFormat(pattern = "yyyy-M-dd")
     private Date end_date;
 
     @JsonFormat(pattern = "yyyy-M-dd")
